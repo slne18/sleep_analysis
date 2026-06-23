@@ -1,0 +1,33 @@
+Saving output to: /Users/solenenoize/Desktop/sleep_analysis/linear_analysis/results/logistic_low_high_freq_20260611_180510.log 
+Using input file: data/merge_data_cleaned.xlsx 
+
+===== Logistic Regression Summary =====
+
+Call:
+glm(formula = lucid ~ low_freq + high_freq, family = binomial(link = "logit"), 
+    data = model_df)
+
+Coefficients:
+              Estimate Std. Error z value Pr(>|z|)    
+(Intercept) -2.3136984  0.1706481 -13.558   <2e-16 ***
+low_freq    -0.0001290  0.0001013  -1.273    0.203    
+high_freq    0.0001264  0.0001008   1.253    0.210    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 271.07  on 455  degrees of freedom
+Residual deviance: 268.89  on 453  degrees of freedom
+AIC: 274.89
+
+Number of Fisher Scoring iterations: 6
+
+
+===== Odds Ratios (95% CI) =====
+         term odds_ratio ci_lower_95 ci_upper_95
+1 (Intercept) 0.09889482  0.07078115    0.138175
+2    low_freq 0.99987099  0.99967243    1.000070
+3   high_freq 1.00012636  0.99992877    1.000324
+
+N used: 456 

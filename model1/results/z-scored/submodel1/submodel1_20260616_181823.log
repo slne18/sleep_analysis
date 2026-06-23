@@ -1,0 +1,65 @@
+Saving output to: /Users/solenenoize/Desktop/sleep_analysis/model1/results/submodel1_20260616_181823.log 
+Warning messages:
+1: package ‘readxl’ was built under R version 4.3.3 
+2: package ‘glmmTMB’ was built under R version 4.3.3 
+3: package ‘DHARMa’ was built under R version 4.3.3 
+Predictor scaling mode: z-scored
+Rows in model_df before cued subset: 453 
+Rows used in submodel1 (totalCues > 0): 330 
+Saved model input data to: /Users/solenenoize/Desktop/sleep_analysis/model1/results/submodel1_model_data_20260616_181823.csv 
+Sleep quality coding: factor with separate category effects (reference = fair)
+Model formula: lucid ~ log(totalCues + 1) + had_arousal + sleep_quality + log(lucid_attempts_past_week + 1) + log(lucid_dreams_past_week + 1) + log(stimulation_motion + 1) + age_z + (1 | pid) 
+
+===== Submodel1 Summary (log version, glmmTMB binomial) =====
+ Family: binomial  ( logit )
+Formula:          
+lucid ~ log(totalCues + 1) + had_arousal + sleep_quality + log(lucid_attempts_past_week +  
+    1) + log(lucid_dreams_past_week + 1) + log(stimulation_motion +  
+    1) + age_z + (1 | pid)
+Data: cued_df
+
+      AIC       BIC    logLik -2*log(L)  df.resid 
+    180.2     225.8     -78.1     156.2       318 
+
+Random effects:
+
+Conditional model:
+ Groups Name        Variance Std.Dev.
+ pid    (Intercept) 89.84    9.478   
+Number of obs: 330, groups:  pid, 173
+
+Conditional model:
+                                   Estimate Std. Error z value Pr(>|z|)    
+(Intercept)                       -10.32405    2.38800  -4.323 1.54e-05 ***
+log(totalCues + 1)                  0.16736    0.19810   0.845    0.398    
+had_arousal1                        0.54416    1.76778   0.308    0.758    
+sleep_qualityvery_poor              4.10960    3.72843   1.102    0.270    
+sleep_qualitypoor                  -1.10394    2.90842  -0.380    0.704    
+sleep_qualitygood                   0.84106    1.93731   0.434    0.664    
+sleep_qualityvery_good              0.56971    2.17788   0.262    0.794    
+log(lucid_attempts_past_week + 1)   0.08255    0.95113   0.087    0.931    
+log(lucid_dreams_past_week + 1)     2.24278    1.41002   1.591    0.112    
+log(stimulation_motion + 1)        -0.10222    0.32325  -0.316    0.752    
+age_z                               0.63177    0.67964   0.930    0.353    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+===== Odds Ratios =====
+                      (Intercept)                log(totalCues + 1) 
+                     3.283390e-05                      1.182178e+00 
+                     had_arousal1            sleep_qualityvery_poor 
+                     1.723154e+00                      6.092237e+01 
+                sleep_qualitypoor                 sleep_qualitygood 
+                     3.315638e-01                      2.318819e+00 
+           sleep_qualityvery_good log(lucid_attempts_past_week + 1) 
+                     1.767758e+00                      1.086053e+00 
+  log(lucid_dreams_past_week + 1)       log(stimulation_motion + 1) 
+                     9.419441e+00                      9.028353e-01 
+                            age_z 
+                     1.880930e+00 
+No significant fixed effects (p < 0.05); no association plots generated.
+
+===== DHARMa Diagnostics =====
+null device 
+          1 
+Saved DHARMa plot to: /Users/solenenoize/Desktop/sleep_analysis/model1/results/submodel1_Rplots_20260616_181823.pdf 

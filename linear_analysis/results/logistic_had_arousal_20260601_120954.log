@@ -1,0 +1,31 @@
+Saving output to: /Users/solenenoize/Desktop/sleep_analysis/linear_analysis/results/logistic_had_arousal_20260601_120954.log 
+Using input file: ../data/merge_data_cleaned.xlsx 
+
+===== Logistic Regression Summary =====
+
+Call:
+glm(formula = lucid ~ had_arousal, family = binomial(link = "logit"), 
+    data = model_df)
+
+Coefficients:
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept) -2.19783    0.07813 -28.132   <2e-16 ***
+had_arousal  0.12736    0.21522   0.592    0.554    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 1359.2  on 2070  degrees of freedom
+Residual deviance: 1358.9  on 2069  degrees of freedom
+AIC: 1362.9
+
+Number of Fisher Scoring iterations: 4
+
+
+===== Odds Ratios (95% CI) =====
+         term odds_ratio ci_lower_95 ci_upper_95
+1 (Intercept)  0.1110433   0.0952778   0.1294175
+2 had_arousal  1.1358281   0.7449292   1.7318498
+
+N used: 2071 

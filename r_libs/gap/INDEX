@@ -1,0 +1,148 @@
+AE3                     AE model using nuclear family trios
+BFDP                    Bayesian false-discovery probability
+ESplot                  Effect-size plot
+FPRP                    False-positive report probability
+KCC                     Disease prevalences in cases and controls
+LD22                    LD statistics for two diallelic markers
+LDkl                    LD statistics for two multiallelic markers
+MCMCgrm                 Mixed modeling with genetic relationship
+                        matrices
+METAL_forestplot        forest plot as R/meta's forest for METAL
+                        outputs
+ReadGRM                 A function to read GRM file
+ReadGRMBin              A function to read GRM binary files
+WriteGRM                A function to write GRM file
+WriteGRMBin             A function to write GRM binary file
+a2g                     Allele-to-genotype conversion
+ab                      Test/Power calculation for mediating effect
+allele.recode           Allele recoding
+asplot                  Regional association plot
+b2r                     Obtain correlation coefficients and their
+                        variance-covariances
+bt                      Bradley-Terry model for contingency table
+ccsize                  Power and sample size for case-cohort design
+chow.test               Chow's test for heterogeneity in two
+                        regressions
+chr_pos_a1_a2           SNP id by chr:pos+a1/a2
+ci2ms                   Effect size and standard error from confidence
+                        interval
+circos.cis.vs.trans.plot
+                        circos plot of cis/trans classification
+circos.cnvplot          circos plot of CNVs.
+circos.mhtplot          circos Manhattan plot with gene annotation
+circos.mhtplot2         Another circos Manhattan plot
+cis.vs.trans.classification
+                        A cis/trans classifier
+cnvplot                 genomewide plot of CNVs
+comp.score              score statistics for testing genetic linkage of
+                        quantitative trait
+cs                      Credible set
+fbsize                  Sample size for family-based linkage and
+                        association design
+g2a                     Conversion of a genotype identifier to alleles
+gc.em                   Gene counting for haplotype analysis
+gc.lambda               Estimation of the genomic control inflation
+                        statistic (lambda)
+gcontrol                genomic control
+gcontrol2               genomic control based on p values
+gcp                     Permutation tests using GENECOUNTING
+genecounting            Gene counting for haplotype analysis
+geno.recode             Genotype recoding
+get_b_se                Get b and se from AF, n, and z
+get_pve_se              Get pve and its standard error from n, z
+get_sdy                 Get sd(y) from AF, n, b, se
+gif                     Kinship coefficient and genetic index of
+                        familiality
+grid2d                  Two-dimensional grid
+h2.jags                 Heritability estimation based on genomic
+                        relationship matrix using JAGS
+h2G                     Heritability and its variance
+h2GE                    Heritability and its variance when there is an
+                        environment component
+h2_mzdz                 Heritability estimation according to twin
+                        correlations
+h2l                     Heritability under the liability threshold
+                        model
+hap                     Haplotype reconstruction
+hap.control             Control for haplotype reconstruction
+hap.em                  Gene counting for haplotype analysis
+hap.score               Score statistics for association of traits with
+                        haplotypes
+hg18                    Chromosomal lengths for build 36
+hg19                    Chromosomal lengths for build 37
+hg38                    Chromosomal lengths for build 38
+hmht.control            Controls for highlights
+htr                     Haplotype trend regression
+hwe                     Hardy-Weinberg equlibrium test for a
+                        multiallelic marker
+hwe.cc                  A likelihood ratio test of population
+                        Hardy-Weinberg equilibrium for case-control
+                        studies
+hwe.hardy               Hardy-Weinberg equilibrium test using MCMC
+hwe.jags                Hardy-Weinberg equlibrium test for a
+                        multiallelic marker using JAGS
+inv_chr_pos_a1_a2       Retrieval of chr:pos+a1/a2 according to SNP id
+invnormal               Inverse normal transformation
+ixy                     Conversion of chrosome name from strings
+kin.morgan              kinship matrix for simple pedigree
+klem                    Haplotype frequency estimation based on a
+                        genotype table of two multiallelic markers
+labelManhattan          Annotate Manhattan or Miami Plot
+log10p                  log10(p) for a normal deviate z
+log10pvalue             log10(p) for a P value including its scientific
+                        format
+logp                    log(p) for a normal deviate z
+makeped                 A function to prepare pedigrees in post-MAKEPED
+                        format
+masize                  Sample size calculation for mediation analysis
+metap                   Meta-analysis of p values
+metareg                 Fixed and random effects model for
+                        meta-analysis
+mht.control             Controls for mhtplot
+mhtplot                 Manhattan plot
+mhtplot.trunc           Truncated Manhattan plot
+mhtplot2                Manhattan plot with annotations
+mia                     Multiple imputation analysis for hap
+miamiplot               Miami plot
+miamiplot2              Miami Plot
+mr                      Mendelian randomization analysis
+mr_forestplot           Mendelian Randomization forest plot
+mtdt                    Transmission/disequilibrium test of a
+                        multiallelic marker
+mtdt2                   Transmission/disequilibrium test of a
+                        multiallelic marker by Bradley-Terry model
+muvar                   Means and variances under 1- and 2- locus
+                        (biallelic) QTL model
+mvmeta                  Multivariate meta-analysis based on generalized
+                        least squares
+pbsize                  Power for population-based association design
+pbsize2                 Power for case-control association design
+pedtodot                Converting pedigree(s) to dot file(s)
+pedtodot_verbatim       Pedigree-drawing with graphviz
+pfc                     Probability of familial clustering of disease
+pfc.sim                 Probability of familial clustering of disease
+pgc                     Preparing weight for GENECOUNTING
+plot.hap.score          Plot haplotype frequencies versus haplotype
+                        score statistics
+print.hap.score         Print a hap.score object
+pvalue                  P value for a normal deviate
+qqfun                   Quantile-comparison plots
+qqunif                  Q-Q plot for uniformly distributed random
+                        variable
+qtl2dplot               2D QTL plot
+qtl2dplotly             2D QTL plotly
+qtl3dplotly             3D QTL plot
+qtlClassifier           A QTL cis/trans classifier
+qtlFinder               Distance-based signal identification
+read.ms.output          A utility function to read ms output
+revStrand               Allele on the reverse strand
+runshinygap             Start shinygap
+s2k                     Statistics for 2 by K table
+sentinels               Sentinel identification from GWAS summary
+                        statistics
+snpHWE                  Functions for single nucleotide polymorphisms
+snptest_sample          A utility to generate SNPTEST sample file
+tscc                    Power calculation for two-stage case-control
+                        design
+whscore                 Whittemore-Halpern scores for allele-sharing
+xy                      Conversion of chromosome names to strings

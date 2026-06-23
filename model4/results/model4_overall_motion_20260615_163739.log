@@ -1,0 +1,60 @@
+Saving output to: /Users/solenenoize/Desktop/sleep_analysis/model4/results/model4_overall_motion_20260615_163739.log 
+Warning messages:
+1: package ‘readxl’ was built under R version 4.3.3 
+2: package ‘glmmTMB’ was built under R version 4.3.3 
+3: package ‘DHARMa’ was built under R version 4.3.3 
+Phone-only pid/night keys kept: 1100 
+Phone-only unique PID count: 473 
+Predictor scaling mode: z-scored
+Rows used in model4: 888 
+Model formula: log_overall_motion ~ lucid + cued_night + lucid_attempts_past_week_z + lucid_dreams_past_week_z + age_z + wake_up_duration_min_z + sleep_quality_num_z + wakeThresh_z + (1 | pid) 
+
+===== Model 4 Summary (overall motion outcome) =====
+ Family: gaussian  ( identity )
+Formula:          
+log_overall_motion ~ lucid + cued_night + lucid_attempts_past_week_z +  
+    lucid_dreams_past_week_z + age_z + wake_up_duration_min_z +  
+    sleep_quality_num_z + wakeThresh_z + (1 | pid)
+Data: model_df
+
+      AIC       BIC    logLik -2*log(L)  df.resid 
+   2912.7    2965.4   -1445.4    2890.7       877 
+
+Random effects:
+
+Conditional model:
+ Groups   Name        Variance Std.Dev.
+ pid      (Intercept) 8.7179   2.953   
+ Residual             0.2715   0.521   
+Number of obs: 888, groups:  pid, 394
+
+Dispersion estimate for gaussian family (sigma^2): 0.271 
+
+Conditional model:
+                            Estimate Std. Error z value Pr(>|z|)    
+(Intercept)                 2.414304   0.155467  15.529   <2e-16 ***
+lucid                      -0.015100   0.089931  -0.168    0.867    
+cued_night                  0.061743   0.055793   1.107    0.268    
+lucid_attempts_past_week_z -0.008035   0.140726  -0.057    0.954    
+lucid_dreams_past_week_z   -0.065887   0.128010  -0.515    0.607    
+age_z                       0.245007   0.149468   1.639    0.101    
+wake_up_duration_min_z     -0.185955   0.160333  -1.160    0.246    
+sleep_quality_num_z         0.001225   0.156611   0.008    0.994    
+wakeThresh_z               -0.036436   0.137481  -0.265    0.791    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+===== Fixed Effects =====
+               (Intercept)                      lucid 
+               2.414303610               -0.015099603 
+                cued_night lucid_attempts_past_week_z 
+               0.061743490               -0.008035317 
+  lucid_dreams_past_week_z                      age_z 
+              -0.065886780                0.245007015 
+    wake_up_duration_min_z        sleep_quality_num_z 
+              -0.185954615                0.001224626 
+              wakeThresh_z 
+              -0.036435955 
+
+===== DHARMa Diagnostics =====
+Saved DHARMa plot to: /Users/solenenoize/Desktop/sleep_analysis/model4/results/model4_overall_motion_Rplots_20260615_163739.pdf 

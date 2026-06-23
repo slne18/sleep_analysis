@@ -1,0 +1,66 @@
+Saving output to: /Users/solenenoize/Desktop/sleep_analysis/model1/results/model1_bin_20260616_182016.log 
+Warning messages:
+1: package ‘readxl’ was built under R version 4.3.3 
+2: package ‘glmmTMB’ was built under R version 4.3.3 
+3: package ‘DHARMa’ was built under R version 4.3.3 
+Predictor scaling mode: raw (no z-scoring)
+Rows before complete-case filtering: 2072 
+Rows used in Model 2: 1167 
+Sleep quality coding: factor with separate category effects (reference = fair)
+Model formula: lucid ~ had_arousal + cued_night + sleep_quality + lucid_attempts_past_week_raw + lucid_dreams_past_week_raw + age_raw + log(overall_motion + 1) + (1 | pid) 
+
+===== Model 2 Summary (glmmTMB binomial) =====
+ Family: binomial  ( logit )
+Formula:          
+lucid ~ had_arousal + cued_night + sleep_quality + lucid_attempts_past_week_raw +  
+    lucid_dreams_past_week_raw + age_raw + log(overall_motion +  
+    1) + (1 | pid)
+Data: model_df
+
+      AIC       BIC    logLik -2*log(L)  df.resid 
+    701.1     761.8    -338.5     677.1      1155 
+
+Random effects:
+
+Conditional model:
+ Groups Name        Variance Std.Dev.
+ pid    (Intercept) 2.8      1.673   
+Number of obs: 1167, groups:  pid, 494
+
+Conditional model:
+                             Estimate Std. Error z value Pr(>|z|)    
+(Intercept)                  -3.79869    0.62725  -6.056 1.39e-09 ***
+had_arousal1                  0.23348    0.51776   0.451    0.652    
+cued_night1                   0.05069    0.28547   0.178    0.859    
+sleep_qualityvery_poor        1.33550    0.84727   1.576    0.115    
+sleep_qualitypoor            -0.12512    0.49022  -0.255    0.799    
+sleep_qualitygood             0.19852    0.39102   0.508    0.612    
+sleep_qualityvery_good        0.16076    0.50397   0.319    0.750    
+lucid_attempts_past_week_raw  0.06261    0.08121   0.771    0.441    
+lucid_dreams_past_week_raw    0.53905    0.12848   4.196 2.72e-05 ***
+age_raw                       0.00878    0.01157   0.759    0.448    
+log(overall_motion + 1)      -0.07126    0.06382  -1.116    0.264    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+===== Odds Ratios =====
+                 (Intercept)                 had_arousal1 
+                  0.02240002                   1.26298952 
+                 cued_night1       sleep_qualityvery_poor 
+                  1.05199314                   3.80188323 
+           sleep_qualitypoor            sleep_qualitygood 
+                  0.88239203                   1.21959223 
+      sleep_qualityvery_good lucid_attempts_past_week_raw 
+                  1.17440716                   1.06461075 
+  lucid_dreams_past_week_raw                      age_raw 
+                  1.71438187                   1.00881818 
+     log(overall_motion + 1) 
+                  0.93122369 
+
+===== Significant Association Plots =====
+Saved: /Users/solenenoize/Desktop/sleep_analysis/model1/results/model1_bin_sig_scatter_lucid_dreams_past_week_raw_20260616_182016.png 
+
+===== DHARMa Diagnostics =====
+null device 
+          1 
+Saved DHARMa plot to: /Users/solenenoize/Desktop/sleep_analysis/model1/results/Rplots.pdf 

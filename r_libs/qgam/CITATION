@@ -1,0 +1,22 @@
+bibentry(bibtype = "Article",
+  title        = "{qgam}: {B}ayesian Nonparametric Quantile Regression Modeling in {R}",
+  author       = c(person(given = "Matteo",
+                          family = "Fasiolo",
+                          email = "matteo.fasiolo@gmail.com"),
+                   person(given = c("Simon", "N."),
+                          family = "Wood"),
+                   person(given = "Margaux",
+                          family = "Zaffran"),
+                   person(given = "Rapha\\\"el",
+                          family = "Nedellec"),
+                   person(given = "Yannig",
+                          family = "Goude")),
+  journal      = "Journal of Statistical Software",
+  year         = "2021",
+  volume       = "100",
+  number       = "9",
+  pages        = "1--31",
+  doi          = "10.18637/jss.v100.i09",
+  header       = "To cite qgam in publications use:"
+)
+

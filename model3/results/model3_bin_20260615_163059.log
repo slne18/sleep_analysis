@@ -1,0 +1,67 @@
+Saving output to: /Users/solenenoize/Desktop/sleep_analysis/model3/results/model3_bin_20260615_163059.log 
+Warning messages:
+1: package ‘readxl’ was built under R version 4.3.3 
+2: package ‘glmmTMB’ was built under R version 4.3.3 
+3: package ‘DHARMa’ was built under R version 4.3.3 
+Phone-only pid/night keys kept: 1100 
+Phone-only unique PID count: 473 
+Predictor scaling mode: z-scored
+Rows before complete-case filtering: 1066 
+Rows used in Model 3: 239 
+Model formula: lucid ~ cued_night + lucid_attempts_past_week_z + lucid_dreams_past_week_z + age_z + wake_up_duration_min_z + sleep_quality_num_z + wakeThresh_z + high_freq_z + low_freq_z + cue_delta_var_z + (1 | pid) 
+
+===== Model 3 Summary (glmmTMB binomial) =====
+ Family: binomial  ( logit )
+Formula:          
+lucid ~ cued_night + lucid_attempts_past_week_z + lucid_dreams_past_week_z +  
+    age_z + wake_up_duration_min_z + sleep_quality_num_z + wakeThresh_z +  
+    high_freq_z + low_freq_z + cue_delta_var_z + (1 | pid)
+Data: model_df
+
+      AIC       BIC    logLik -2*log(L)  df.resid 
+    116.4     158.1     -46.2      92.4       227 
+
+Random effects:
+
+Conditional model:
+ Groups Name        Variance Std.Dev.
+ pid    (Intercept) 5.574    2.361   
+Number of obs: 239, groups:  pid, 100
+
+Conditional model:
+                           Estimate Std. Error z value Pr(>|z|)  
+(Intercept)                -5.87595    2.92331  -2.010   0.0444 *
+cued_night                  1.17233    1.10696   1.059   0.2896  
+lucid_attempts_past_week_z -0.19307    0.48150  -0.401   0.6884  
+lucid_dreams_past_week_z    0.39104    0.35244   1.109   0.2672  
+age_z                       0.97613    0.47687   2.047   0.0407 *
+wake_up_duration_min_z      0.48237    0.64745   0.745   0.4562  
+sleep_quality_num_z         0.04647    0.51029   0.091   0.9274  
+wakeThresh_z               -1.13214    1.17218  -0.966   0.3341  
+high_freq_z                 1.48543    1.43164   1.038   0.2995  
+low_freq_z                 -0.43751    1.36814  -0.320   0.7491  
+cue_delta_var_z            -1.65802    1.44552  -1.147   0.2514  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+===== Odds Ratios =====
+               (Intercept)                 cued_night 
+               0.002806133                3.229502959 
+lucid_attempts_past_week_z   lucid_dreams_past_week_z 
+               0.824424710                1.478522573 
+                     age_z     wake_up_duration_min_z 
+               2.654163573                1.619915851 
+       sleep_quality_num_z               wakeThresh_z 
+               1.047569237                0.322341739 
+               high_freq_z                 low_freq_z 
+               4.416880630                0.645645024 
+           cue_delta_var_z 
+               0.190515645 
+
+===== Significant Association Plots =====
+Saved: /Users/solenenoize/Desktop/sleep_analysis/model3/results/model3_bin_sig_scatter_age_z_20260615_163059.png 
+
+===== DHARMa Diagnostics =====
+null device 
+          1 
+Saved DHARMa plot to: /Users/solenenoize/Desktop/sleep_analysis/model3/results/Rplots.pdf 

@@ -1,0 +1,31 @@
+Saving output to: /Users/solenenoize/Desktop/sleep_analysis/linear_analysis/results/logistic_fitbit_stim_motion_20260615_153224.log 
+Using input file: data/merge_data_cleaned.xlsx 
+
+===== Logistic Regression Summary =====
+
+Call:
+glm(formula = lucid ~ fitbit_stim_motion, family = binomial(link = "logit"), 
+    data = model_df)
+
+Coefficients:
+                   Estimate Std. Error z value Pr(>|z|)    
+(Intercept)         -1.8222     0.4464  -4.081 4.48e-05 ***
+fitbit_stim_motion  -0.1378     0.1398  -0.986    0.324    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 64.374  on 96  degrees of freedom
+Residual deviance: 63.271  on 95  degrees of freedom
+AIC: 67.271
+
+Number of Fisher Scoring iterations: 5
+
+
+===== Odds Ratios (95% CI) =====
+                term odds_ratio ci_lower_95 ci_upper_95
+1        (Intercept)  0.1616775  0.06739584   0.3878522
+2 fitbit_stim_motion  0.8712330  0.66236027   1.1459729
+
+N used: 97 

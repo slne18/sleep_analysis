@@ -1,0 +1,92 @@
+Saving output to: /Users/solenenoize/Desktop/sleep_analysis/model2/results/model2_bin_interaction_20260604_132804.log 
+Warning messages:
+1: package ‘readxl’ was built under R version 4.3.3 
+2: package ‘glmmTMB’ was built under R version 4.3.3 
+3: package ‘DHARMa’ was built under R version 4.3.3 
+Predictor scaling mode: z-scored
+Rows before complete-case filtering: 2072 
+Rows used in model2_bin_interaction: 2029 
+Model formula: lucid ~ cued_night * (had_arousal + lucid_attempts_past_week_z + lucid_dreams_past_week_z + age_z + wake_up_duration_min_z + sleep_quality_num_z + wakeThresh_z) + (1 | pid) 
+
+===== Model 2 Bin + Interaction Summary (glmmTMB binomial) =====
+ Family: binomial  ( logit )
+Formula:          
+lucid ~ cued_night * (had_arousal + lucid_attempts_past_week_z +  
+    lucid_dreams_past_week_z + age_z + wake_up_duration_min_z +  
+    sleep_quality_num_z + wakeThresh_z) + (1 | pid)
+Data: model_df
+
+      AIC       BIC    logLik -2*log(L)  df.resid 
+   1157.1    1252.6    -561.6    1123.1      2012 
+
+Random effects:
+
+Conditional model:
+ Groups Name        Variance Std.Dev.
+ pid    (Intercept) 2.335    1.528   
+Number of obs: 2029, groups:  pid, 591
+
+Conditional model:
+                                        Estimate Std. Error z value Pr(>|z|)
+(Intercept)                            -3.259970   0.281714 -11.572  < 2e-16
+cued_night1                            -0.229835   0.318289  -0.722   0.4702
+had_arousal1                           -0.035174   0.574157  -0.061   0.9512
+lucid_attempts_past_week_z              0.003987   0.135947   0.029   0.9766
+lucid_dreams_past_week_z                0.537380   0.109769   4.896  9.8e-07
+age_z                                   0.017954   0.137012   0.131   0.8957
+wake_up_duration_min_z                  0.110250   0.139707   0.789   0.4300
+sleep_quality_num_z                     0.007276   0.140544   0.052   0.9587
+wakeThresh_z                           -5.096299   4.018867  -1.268   0.2048
+cued_night1:had_arousal1                0.383946   0.667920   0.575   0.5654
+cued_night1:lucid_attempts_past_week_z -0.054442   0.226320  -0.241   0.8099
+cued_night1:lucid_dreams_past_week_z    0.090893   0.203828   0.446   0.6556
+cued_night1:age_z                       0.437874   0.215579   2.031   0.0422
+cued_night1:wake_up_duration_min_z      0.274759   0.218540   1.257   0.2087
+cued_night1:sleep_quality_num_z         0.130948   0.247223   0.530   0.5963
+cued_night1:wakeThresh_z                5.043221   4.165868   1.211   0.2260
+                                          
+(Intercept)                            ***
+cued_night1                               
+had_arousal1                              
+lucid_attempts_past_week_z                
+lucid_dreams_past_week_z               ***
+age_z                                     
+wake_up_duration_min_z                    
+sleep_quality_num_z                       
+wakeThresh_z                              
+cued_night1:had_arousal1                  
+cued_night1:lucid_attempts_past_week_z    
+cued_night1:lucid_dreams_past_week_z      
+cued_night1:age_z                      *  
+cued_night1:wake_up_duration_min_z        
+cued_night1:sleep_quality_num_z           
+cued_night1:wakeThresh_z                  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+===== Odds Ratios =====
+                           (Intercept)                            cued_night1 
+                          3.838957e-02                           7.946650e-01 
+                          had_arousal1             lucid_attempts_past_week_z 
+                          9.654372e-01                           1.003994e+00 
+              lucid_dreams_past_week_z                                  age_z 
+                          1.711516e+00                           1.018116e+00 
+                wake_up_duration_min_z                    sleep_quality_num_z 
+                          1.116558e+00                           1.007302e+00 
+                          wakeThresh_z               cued_night1:had_arousal1 
+                          6.119355e-03                           1.468066e+00 
+cued_night1:lucid_attempts_past_week_z   cued_night1:lucid_dreams_past_week_z 
+                          9.470130e-01                           1.095152e+00 
+                     cued_night1:age_z     cued_night1:wake_up_duration_min_z 
+                          1.549410e+00                           1.316213e+00 
+       cued_night1:sleep_quality_num_z               cued_night1:wakeThresh_z 
+                          1.139909e+00                           1.549684e+02 
+
+===== Significant Association Plots =====
+Saved: /Users/solenenoize/Desktop/sleep_analysis/model2/results/model2_bin_interaction_sig_scatter_lucid_dreams_past_week_z_20260604_132804.png 
+Skipped interaction term for auto-plotting: cued_night1:age_z 
+
+===== DHARMa Diagnostics =====
+null device 
+          1 
+Saved DHARMa plot to: /Users/solenenoize/Desktop/sleep_analysis/model2/results/model2_bin_interaction_Rplots_20260604_132804.pdf 

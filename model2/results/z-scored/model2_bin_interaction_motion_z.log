@@ -1,0 +1,77 @@
+Saving output to: /Users/solenenoize/Desktop/sleep_analysis/model2/results/model2_bin_interaction_20260608_182931.log 
+Warning messages:
+1: package ‘readxl’ was built under R version 4.3.3 
+2: package ‘glmmTMB’ was built under R version 4.3.3 
+3: package ‘DHARMa’ was built under R version 4.3.3 
+Predictor scaling mode: z-scored
+Rows before complete-case filtering: 2072 
+Rows used in model2_bin_interaction: 506 
+Model formula: lucid ~ cued_night * (had_arousal + lucid_attempts_past_week_z + lucid_dreams_past_week_z + age_z + wake_up_duration_min_z + sleep_quality_num_z + wakeThresh_z) + log(overall_motion + 1) + cued_night:log(overall_motion + 1) + (1 | pid) 
+
+===== Model 2 Bin + Interaction Summary (glmmTMB binomial) =====
+ Family: binomial  ( logit )
+Formula:          
+lucid ~ cued_night * (had_arousal + lucid_attempts_past_week_z +  
+    lucid_dreams_past_week_z + age_z + wake_up_duration_min_z +  
+    sleep_quality_num_z + wakeThresh_z) + log(overall_motion +  
+    1) + cued_night:log(overall_motion + 1) + (1 | pid)
+Data: model_df
+
+      AIC       BIC    logLik -2*log(L)  df.resid 
+    255.9     336.2    -109.0     217.9       487 
+
+Random effects:
+
+Conditional model:
+ Groups Name        Variance Std.Dev.
+ pid    (Intercept) 88.17    9.39    
+Number of obs: 506, groups:  pid, 212
+
+Conditional model:
+                                       Estimate Std. Error z value Pr(>|z|)    
+(Intercept)                            -11.0556     3.3076  -3.342  0.00083 ***
+cued_night1                              2.6528     2.7810   0.954  0.34014    
+had_arousal1                             2.3807     2.7726   0.859  0.39054    
+lucid_attempts_past_week_z              -0.8225     1.0246  -0.803  0.42216    
+lucid_dreams_past_week_z                 1.5871     1.1540   1.375  0.16903    
+age_z                                    1.5237     1.0767   1.415  0.15701    
+wake_up_duration_min_z                  -1.2238     1.3833  -0.885  0.37629    
+sleep_quality_num_z                     -1.2651     1.6400  -0.771  0.44048    
+wakeThresh_z                            -1.6923     7.6773  -0.220  0.82554    
+log(overall_motion + 1)                 -0.6641     0.6012  -1.105  0.26930    
+cued_night1:had_arousal1                -2.3627     2.8568  -0.827  0.40821    
+cued_night1:lucid_attempts_past_week_z   0.9697     0.9351   1.037  0.29978    
+cued_night1:lucid_dreams_past_week_z    -0.8549     1.0366  -0.825  0.40954    
+cued_night1:age_z                       -0.9473     0.9522  -0.995  0.31981    
+cued_night1:wake_up_duration_min_z       1.7807     1.3089   1.361  0.17366    
+cued_night1:sleep_quality_num_z          1.4872     1.5477   0.961  0.33658    
+cued_night1:wakeThresh_z                 1.7541     7.6808   0.228  0.81936    
+cued_night1:log(overall_motion + 1)      0.6774     0.5799   1.168  0.24276    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+===== Odds Ratios =====
+                           (Intercept)                            cued_night1 
+                          1.579773e-05                           1.419342e+01 
+                          had_arousal1             lucid_attempts_past_week_z 
+                          1.081260e+01                           4.393486e-01 
+              lucid_dreams_past_week_z                                  age_z 
+                          4.889690e+00                           4.589195e+00 
+                wake_up_duration_min_z                    sleep_quality_num_z 
+                          2.940975e-01                           2.822184e-01 
+                          wakeThresh_z                log(overall_motion + 1) 
+                          1.840951e-01                           5.147117e-01 
+              cued_night1:had_arousal1 cued_night1:lucid_attempts_past_week_z 
+                          9.416504e-02                           2.637031e+00 
+  cued_night1:lucid_dreams_past_week_z                      cued_night1:age_z 
+                          4.253350e-01                           3.877928e-01 
+    cued_night1:wake_up_duration_min_z        cued_night1:sleep_quality_num_z 
+                          5.934201e+00                           4.424906e+00 
+              cued_night1:wakeThresh_z    cued_night1:log(overall_motion + 1) 
+                          5.778272e+00                           1.968703e+00 
+No significant fixed effects (p < 0.05); no association plots generated.
+
+===== DHARMa Diagnostics =====
+null device 
+          1 
+Saved DHARMa plot to: /Users/solenenoize/Desktop/sleep_analysis/model2/results/model2_bin_interaction_Rplots_20260608_182931.pdf 

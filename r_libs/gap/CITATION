@@ -1,0 +1,36 @@
+citHeader("To cite package 'gap' in publications use:")
+
+year <- sub(".*(2[[:digit:]]{3})-.*", "\\1", meta$Date, perl = TRUE)
+vers <- paste("R package version", meta$Version)
+
+bibentry(bibtype="Manual",
+         title = "gap: Genetic Analysis Package",
+         author = c(as.person("J. H. Zhao")),
+         year = year,
+         note = vers,
+         url = "https://CRAN.R-project.org/package=gap",
+
+         textVersion =
+         paste("Zhao J. H.(",
+               year,
+               "). gap: Genetic Analysis Package. ",
+               vers, ", ",
+               "https://CRAN.R-project.org/package=gap", sep=""))
+
+bibentry(bibtype="Article",
+         title = "gap: Genetic Analysis Package",
+         author = c(as.person("J. H. Zhao")),
+	 journal = "Journal of Statistical Software",
+         volume   = "23",
+         number   = "8",
+         pages    = "1-18",
+         year     = "2007",
+         doi      = "10.18637/jss.v023.i08",
+         url      = "https://www.jstatsoft.org/v23/i08",
+
+         textVersion =
+         paste("Zhao, J. H. (2007)",
+  	       "gap: Genetic Analysis Package.",
+               "Journal of Statistical Software 23(8):1-18, ",
+               "https://www.jstatsoft.org/v23/i08")
+)

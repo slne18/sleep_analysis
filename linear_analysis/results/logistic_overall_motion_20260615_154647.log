@@ -1,0 +1,33 @@
+Saving output to: /Users/solenenoize/Desktop/sleep_analysis/linear_analysis/results/logistic_overall_motion_20260615_154647.log 
+Using input file: ../data/merge_data_cleaned.xlsx 
+Using motion file: ../data/motion_summary.csv 
+Phone-only participant count: 470 
+
+===== Logistic Regression Summary =====
+
+Call:
+glm(formula = lucid ~ log(overall_motion + 1), family = binomial(link = "logit"), 
+    data = model_df)
+
+Coefficients:
+                        Estimate Std. Error z value Pr(>|z|)    
+(Intercept)             -2.03181    0.14071 -14.440   <2e-16 ***
+log(overall_motion + 1) -0.08064    0.04645  -1.736   0.0826 .  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 572.15  on 879  degrees of freedom
+Residual deviance: 568.63  on 878  degrees of freedom
+AIC: 572.63
+
+Number of Fisher Scoring iterations: 5
+
+
+===== Odds Ratios (95% CI) =====
+                     term odds_ratio ci_lower_95 ci_upper_95
+1             (Intercept)  0.1310981  0.09950023   0.1727304
+2 log(overall_motion + 1)  0.9225292  0.84225130   1.0104586
+
+N used: 880 
