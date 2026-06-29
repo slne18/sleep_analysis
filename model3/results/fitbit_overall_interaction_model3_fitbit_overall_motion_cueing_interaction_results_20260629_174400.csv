@@ -1,0 +1,4 @@
+"model","term","estimate","std_error","z_value","odds_ratio","p_raw","p_fdr","significant_raw_0.05","significant_fdr_0.05"
+"model3_fitbit_overall_motion_cueing_interaction","(Intercept)",-2.48429221404454,0.382223529391315,-6.49957949475466,0.083384552045647,8.05448312903811e-11,2.41634493871143e-10,TRUE,TRUE
+"model3_fitbit_overall_motion_cueing_interaction","fitbit_overall_motion_logz",0.497025464695943,0.34464141587583,1.44215245701932,1.64382437767506,0.149259369340766,0.149259369340766,FALSE,FALSE
+"model3_fitbit_overall_motion_cueing_interaction","fitbit_overall_motion_logz:cued_night1",-0.80442198512508,0.435959455721431,-1.84517613867077,0.447346424732002,0.0650119203553926,0.097517880533089,FALSE,FALSE

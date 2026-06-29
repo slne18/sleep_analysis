@@ -1,0 +1,4 @@
+"model","term","estimate","std_error","z_value","odds_ratio","p_raw","p_fdr","significant_raw_0.05","significant_fdr_0.05"
+"model3_phone_stimulation_cued","(Intercept)",-8.14285725252649,1.80877635324376,-4.50185963451122,0.000290805106428398,6.73614649824332e-06,2.02084394947299e-05,TRUE,TRUE
+"model3_phone_stimulation_cued","stimulation_motion_logz",-1.34058677432661,2.71068881077031,-0.494555763465025,0.261692069332924,0.620913734600454,0.678250219310275,FALSE,FALSE
+"model3_phone_stimulation_cued","cue_delta_var_logz",1.02032706826951,2.45949631367129,0.414852042102257,2.77410193632231,0.678250219310275,0.678250219310275,FALSE,FALSE

@@ -1,0 +1,143 @@
+Saving output to: /Users/solenenoize/Desktop/sleep_analysis/results/descriptive_analysis_20260626_142927.log 
+Using input file: data/merge_data_cleaned.xlsx 
+Matched 'lucid outcome' -> 'lucid'
+Matched 'cue notice' -> 'cue_notice'
+Matched 'pid' -> 'pid'
+Matched 'wakeThresh' -> 'wakeThresh'
+Matched 'highestVol' -> 'highestVol'
+Matched 'arousalN' -> 'arousalN'
+Matched 'totalCues' -> 'totalCues'
+Matched 'had_arousal' -> 'had_arousal'
+Matched 'cued_night' -> 'cued_night'
+Matched 'wake up duration' -> 'wake_up_duration'
+Matched 'sleep quality' -> 'sleep_quality'
+Matched 'lucid dreams past week' -> 'lucid_dreams_past_week'
+Matched 'lucid attempts past week' -> 'lucid_attempts_past_week'
+Matched 'age' -> 'age'
+Matched 'time asleep' -> 'time_asleep'
+Matched 'overall_motion' -> 'overall_motion'
+Matched 'stimulation_motion' -> 'stimulation_motion'
+Matched optional 'fitbit_overall_motion' -> 'fitbit_overall_motion'
+Matched optional 'fitbit_stim_motion' -> 'fitbit_stim_motion'
+Matched optional 'cue_delta_var' -> 'cue_delta_var'
+Matched optional 'high_freq' -> 'high_freq'
+Matched optional 'low_freq' -> 'low_freq'
+Matched 'gender' -> 'gender'
+
+===== Sample Characteristics (participant-level) =====
+                                   characteristic               statistic
+                                     Participants                       n
+                                  Nights recorded                       n
+                           Nights per participant               mean (SD)
+                           Nights per participant            median [IQR]
+                                      Age (years)               mean (SD)
+                                      Age (years)            median [IQR]
+                                              Sex                    Male
+                                              Sex                  Female
+                                              Sex Other/Prefer Not to Say
+                                              Sex         Missing/Unknown
+                        Lucid dreams in past week               mean (SD)
+                        Lucid dreams in past week            median [IQR]
+                Lucid dream attempts in past week               mean (SD)
+                Lucid dream attempts in past week            median [IQR]
+ Lucid dream rate (proportion of recorded nights)               mean (SD)
+ Lucid dream rate (proportion of recorded nights)            median [IQR]
+             value    n
+               592  592
+              2072 2072
+         3.5 (5.3)  592
+    2.0 [1.0, 4.0]  592
+       36.0 (14.0)  591
+ 34.0 [24.5, 44.0]  591
+       349 (59.0%)  592
+       206 (34.8%)  592
+         36 (6.1%)  592
+          1 (0.2%)  592
+         0.5 (1.2)  591
+    0.0 [0.0, 1.0]  591
+         1.1 (1.8)  591
+    0.0 [0.0, 2.0]  591
+         0.1 (0.3)  592
+    0.0 [0.0, 0.0]  592
+
+===== Numeric Descriptive Stats (requested variables only) =====
+                   variable    n         mean           sd      median
+12           overall_motion 1172 1.823489e+03 6.298387e+03   1.9681085
+18                 low_freq 1169 1.738690e+03 6.010930e+03   1.8669564
+13       stimulation_motion  456 1.439175e+03 5.399121e+03   0.5615631
+4                 totalCues 2071 1.056820e+03 4.092769e+03   0.0000000
+16            cue_delta_var  305 6.159665e+02 3.437496e+03   0.1685048
+17                high_freq 1169 4.219772e+02 1.801523e+03   0.2226137
+11              time_asleep 1216 4.489276e+02 1.003084e+02 450.5000000
+10                      age 2030 3.674138e+01 1.347142e+01  36.0000000
+7      wake_up_duration_min 2030 1.541379e+01 1.341126e+01   7.5000000
+14    fitbit_overall_motion  283 6.942283e+00 3.418088e+00   7.0600575
+15       fitbit_stim_motion   97 2.881334e+00 2.847987e+00   2.3880009
+2                highestVol 2071 6.149062e-01 2.460953e+00   0.0000000
+9  lucid_attempts_past_week 2030 1.107389e+00 1.817525e+00   0.0000000
+6         sleep_quality_num 2030 3.529557e+00 1.023077e+00   4.0000000
+8    lucid_dreams_past_week 2030 4.300493e-01 1.016756e+00   0.0000000
+3                  arousalN 2071 2.182521e-01 6.048716e-01   0.0000000
+1                wakeThresh 2072 2.068542e-02 2.177877e-01   0.0150000
+5              arousal_rate  638 2.539939e-03 1.014099e-02   0.0000000
+            p25         p75          min          max        range
+12 7.777979e-01   5.2617928 0.000000e+00 4.729013e+04 4.729013e+04
+18 7.330816e-01   5.1047285 2.220446e-16 4.024775e+04 4.024775e+04
+13 4.171220e-02   3.8144648 0.000000e+00 3.453522e+04 3.453522e+04
+4  0.000000e+00  69.5000000 0.000000e+00 6.395800e+04 6.395800e+04
+16 5.377917e-03   1.2858004 0.000000e+00 3.249820e+04 3.249820e+04
+17 1.509126e-01   0.4146656 0.000000e+00 3.842633e+04 3.842633e+04
+11 3.750000e+02 510.0000000 0.000000e+00 7.800000e+02 7.800000e+02
+10 2.600000e+01  44.0000000 1.700000e+01 1.000000e+02 8.300000e+01
+7  7.500000e+00  22.5000000 7.500000e+00 5.250000e+01 4.500000e+01
+14 5.624213e+00   8.1426583 0.000000e+00 3.789486e+01 3.789486e+01
+15 3.189259e-01   4.8648358 2.870371e-02 1.067395e+01 1.064525e+01
+2  0.000000e+00   0.0330000 0.000000e+00 3.503781e+01 3.503781e+01
+9  0.000000e+00   2.0000000 0.000000e+00 7.000000e+00 7.000000e+00
+6  3.000000e+00   4.0000000 1.000000e+00 5.000000e+00 4.000000e+00
+8  0.000000e+00   0.0000000 0.000000e+00 7.000000e+00 7.000000e+00
+3  0.000000e+00   0.0000000 0.000000e+00 2.000000e+00 2.000000e+00
+1  1.000000e-02   0.0150000 0.000000e+00 9.335166e+00 9.335166e+00
+5  0.000000e+00   0.0000000 0.000000e+00 1.333333e-01 1.333333e-01
+   sd_vs_median_sd large_scale_flag
+12    7.485003e+02              YES
+18    7.143389e+02              YES
+13    6.416315e+02              YES
+4     4.863846e+02              YES
+16    4.085120e+02              YES
+17    2.140930e+02              YES
+11    1.192066e+01              YES
+10    1.600944e+00                 
+7     1.593794e+00                 
+14    4.062056e-01                 
+15    3.384547e-01                 
+2     2.924597e-01                 
+9     2.159946e-01                 
+6     1.215825e-01                 
+8     1.208313e-01                 
+3     7.188293e-02                 
+1     2.588189e-02                 
+5     1.205155e-03                 
+
+Rows with totalCues != 0: 638 / 2072 (30.81% of rows with non-missing totalCues) 
+Rows with arousalN > 0: 250 / 2072 (12.07% of rows with non-missing arousalN) 
+Average nights per participant: 3.50 (participants with non-missing pid: 592, rows with non-missing pid: 2072, total rows: 2072) 
+
+===== Lucid Rate by Arousal (all model_df nights) =====
+  had_arousal    n lucid_rate
+1           0 1821 0.09994509
+2           1  250 0.11200000
+
+===== Lucid Rate by Arousal (cued nights only) =====
+  had_arousal   n lucid_rate
+1           0 497 0.07645875
+2           1 141 0.14184397
+
+===== Cross-tab: had_arousal x cued_night =====
+   
+       0    1
+  0 1324  497
+  1  109  141
+
+Saved sample characteristics to: /Users/solenenoize/Desktop/sleep_analysis/results/descriptive_analysis_sample_characteristics_20260626_142927.csv 
+Saved numeric stats to: /Users/solenenoize/Desktop/sleep_analysis/results/descriptive_analysis_numeric_stats_20260626_142927.csv 

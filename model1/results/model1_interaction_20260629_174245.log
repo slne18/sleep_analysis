@@ -1,0 +1,120 @@
+Saving output to:/Users/solenenoize/Desktop/sleep_analysis/model1/results/model1_interaction_20260629_174245.log
+Using input file:/Users/solenenoize/Desktop/sleep_analysis/model1/../data/merge_data_cleaned.xlsx
+Rows before complete-case filtering:2072
+Rows used in model1 interaction:1216
+Predictor preprocessing (all continuous predictors):
+  1) log(x + 1)
+  2) z-score
+  Transformed columns:age_logz, sleep_quality_logz, lucid_dreams_freq_pw_logz, lucid_attempts_freq_pw_logz, time_asleep_logz, wake_up_duration_logz
+Cueing interaction model: predictor main effects + predictor:cued_night interactions
+Terms per predictor: predictor + predictor:cued_night
+Predictors:age_logz, sleep_quality_logz, lucid_dreams_freq_pw_logz, lucid_attempts_freq_pw_logz, time_asleep_logz, wake_up_duration_logz, gender
+Model formula:lucid ~ age_logz + age_logz:cued_night + sleep_quality_logz + 
+Model formula:    sleep_quality_logz:cued_night + lucid_dreams_freq_pw_logz + 
+Model formula:    lucid_dreams_freq_pw_logz:cued_night + lucid_attempts_freq_pw_logz + 
+Model formula:    lucid_attempts_freq_pw_logz:cued_night + time_asleep_logz + 
+Model formula:    time_asleep_logz:cued_night + wake_up_duration_logz + wake_up_duration_logz:cued_night + 
+Model formula:    gender + gender:cued_night + (1 | pid)
+Rows used:1216
+Participants:344
+
+=====Model 1 Cueing Interaction Summary (glmmTMB binomial)=====
+ Family: binomial  ( logit )
+Formula:          
+lucid ~ age_logz + age_logz:cued_night + sleep_quality_logz +  
+    sleep_quality_logz:cued_night + lucid_dreams_freq_pw_logz +  
+    lucid_dreams_freq_pw_logz:cued_night + lucid_attempts_freq_pw_logz +  
+    lucid_attempts_freq_pw_logz:cued_night + time_asleep_logz +  
+    time_asleep_logz:cued_night + wake_up_duration_logz + wake_up_duration_logz:cued_night +  
+    gender + gender:cued_night + (1 | pid)
+Data: data
+
+      AIC       BIC    logLik -2*log(L)  df.resid 
+    704.9     796.7    -334.4     668.9      1198 
+
+Random effects:
+
+Conditional model:
+ Groups Name        Variance Std.Dev.
+ pid    (Intercept) 2.068    1.438   
+Number of obs: 1216, groups:  pid, 344
+
+Conditional model:
+                                            Estimate Std. Error z value
+(Intercept)                                 -3.23775    0.32764  -9.882
+age_logz                                     0.18596    0.18282   1.017
+sleep_quality_logz                          -0.02458    0.18134  -0.136
+lucid_dreams_freq_pw_logz                    0.42936    0.17387   2.470
+lucid_attempts_freq_pw_logz                  0.04832    0.18042   0.268
+time_asleep_logz                             0.04943    0.21305   0.232
+wake_up_duration_logz                        0.20672    0.18921   1.093
+genderFemale                                 0.35664    0.37620   0.948
+genderOther/Prefer Not to Say                0.38118    0.72424   0.526
+age_logz:cued_night1                         0.13945    0.30095   0.463
+cued_night1:sleep_quality_logz               0.22524    0.31385   0.718
+cued_night1:lucid_dreams_freq_pw_logz        0.08890    0.26701   0.333
+cued_night1:lucid_attempts_freq_pw_logz     -0.03371    0.28893  -0.117
+cued_night1:time_asleep_logz                -0.43682    0.29867  -1.463
+cued_night1:wake_up_duration_logz            0.33082    0.29111   1.136
+cued_night1:genderFemale                    -0.05302    0.51125  -0.104
+cued_night1:genderOther/Prefer Not to Say  -17.91073 5904.53409  -0.003
+                                          Pr(>|z|)    
+(Intercept)                                 <2e-16 ***
+age_logz                                    0.3090    
+sleep_quality_logz                          0.8922    
+lucid_dreams_freq_pw_logz                   0.0135 *  
+lucid_attempts_freq_pw_logz                 0.7888    
+time_asleep_logz                            0.8165    
+wake_up_duration_logz                       0.2746    
+genderFemale                                0.3431    
+genderOther/Prefer Not to Say               0.5987    
+age_logz:cued_night1                        0.6431    
+cued_night1:sleep_quality_logz              0.4730    
+cued_night1:lucid_dreams_freq_pw_logz       0.7392    
+cued_night1:lucid_attempts_freq_pw_logz     0.9071    
+cued_night1:time_asleep_logz                0.1436    
+cued_night1:wake_up_duration_logz           0.2558    
+cued_night1:genderFemale                    0.9174    
+cued_night1:genderOther/Prefer Not to Say   0.9976    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+===== Odds Ratios =====
+                              (Intercept) 
+                             3.925222e-02 
+                                 age_logz 
+                             1.204379e+00 
+                       sleep_quality_logz 
+                             9.757240e-01 
+                lucid_dreams_freq_pw_logz 
+                             1.536281e+00 
+              lucid_attempts_freq_pw_logz 
+                             1.049511e+00 
+                         time_asleep_logz 
+                             1.050673e+00 
+                    wake_up_duration_logz 
+                             1.229637e+00 
+                             genderFemale 
+                             1.428522e+00 
+            genderOther/Prefer Not to Say 
+                             1.464009e+00 
+                     age_logz:cued_night1 
+                             1.149642e+00 
+           cued_night1:sleep_quality_logz 
+                             1.252620e+00 
+    cued_night1:lucid_dreams_freq_pw_logz 
+                             1.092972e+00 
+  cued_night1:lucid_attempts_freq_pw_logz 
+                             9.668533e-01 
+             cued_night1:time_asleep_logz 
+                             6.460860e-01 
+        cued_night1:wake_up_duration_logz 
+                             1.392114e+00 
+                 cued_night1:genderFemale 
+                             9.483605e-01 
+cued_night1:genderOther/Prefer Not to Say 
+                             1.665203e-08 
+
+===== DHARMa Diagnostics =====
+Saved results (including raw and FDR p-values) to:/Users/solenenoize/Desktop/sleep_analysis/model1/results/model1_interaction_model1_participant_factors_cueing_interaction_results_20260629_174245.csv
+Saved DHARMa plot to:/Users/solenenoize/Desktop/sleep_analysis/model1/results/model1_interaction_model1_participant_factors_cueing_interaction_DHARMa_20260629_174245.pdf

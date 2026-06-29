@@ -1,0 +1,60 @@
+Saving output to:/Users/solenenoize/Desktop/sleep_analysis/model1/results/model1_20260629_172154.log
+Using input file:/Users/solenenoize/Desktop/sleep_analysis/model1/../data/merge_data_cleaned.xlsx
+Rows before complete-case filtering:2072
+Predictor preprocessing (all continuous predictors):
+  1) log(x + 1)
+  2) z-score
+  Transformed columns:age_logz, sleep_quality_logz, lucid_dreams_freq_pw_logz, lucid_attempts_freq_pw_logz, time_asleep_logz, wake_up_duration_logz
+Model formula:lucid ~ age_logz + sleep_quality_logz + lucid_dreams_freq_pw_logz + 
+Model formula:    lucid_attempts_freq_pw_logz + time_asleep_logz + wake_up_duration_logz + 
+Model formula:    gender + (1 | pid)
+Rows used:1216
+Participants:344
+
+=====Model 1 Summary (glmmTMB binomial)=====
+ Family: binomial  ( logit )
+Formula:          
+lucid ~ age_logz + sleep_quality_logz + lucid_dreams_freq_pw_logz +  
+    lucid_attempts_freq_pw_logz + time_asleep_logz + wake_up_duration_logz +  
+    gender + (1 | pid)
+Data: data
+
+      AIC       BIC    logLik -2*log(L)  df.resid 
+    696.6     747.7    -338.3     676.6      1206 
+
+Random effects:
+
+Conditional model:
+ Groups Name        Variance Std.Dev.
+ pid    (Intercept) 2.23     1.493   
+Number of obs: 1216, groups:  pid, 344
+
+Conditional model:
+                              Estimate Std. Error z value Pr(>|z|)    
+(Intercept)                   -3.26407    0.32947  -9.907  < 2e-16 ***
+age_logz                       0.21378    0.17021   1.256  0.20913    
+sleep_quality_logz             0.07843    0.16384   0.479  0.63215    
+lucid_dreams_freq_pw_logz      0.43292    0.15366   2.817  0.00484 ** 
+lucid_attempts_freq_pw_logz    0.04567    0.16449   0.278  0.78126    
+time_asleep_logz              -0.22135    0.12143  -1.823  0.06832 .  
+wake_up_duration_logz          0.31623    0.17172   1.842  0.06554 .  
+genderFemale                   0.32361    0.35240   0.918  0.35846    
+genderOther/Prefer Not to Say  0.19460    0.70859   0.275  0.78360    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+===== Odds Ratios =====
+                  (Intercept)                      age_logz 
+                   0.03823246                    1.23834724 
+           sleep_quality_logz     lucid_dreams_freq_pw_logz 
+                   1.08158838                    1.54174905 
+  lucid_attempts_freq_pw_logz              time_asleep_logz 
+                   1.04673390                    0.80143293 
+        wake_up_duration_logz                  genderFemale 
+                   1.37194621                    1.38211278 
+genderOther/Prefer Not to Say 
+                   1.21483019 
+
+===== DHARMa Diagnostics =====
+Saved results (including raw and FDR p-values) to:/Users/solenenoize/Desktop/sleep_analysis/model1/results/model1_model1_participant_factors_results_20260629_172154.csv
+Saved DHARMa plot to:/Users/solenenoize/Desktop/sleep_analysis/model1/results/model1_model1_participant_factors_DHARMa_20260629_172154.pdf

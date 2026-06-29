@@ -1,0 +1,61 @@
+Saving output to:/Users/solenenoize/Desktop/sleep_analysis/model3/results/phone_overall_interaction_20260629_174404.log
+Using input file:/Users/solenenoize/Desktop/sleep_analysis/model3/../data/merge_data_cleaned.xlsx
+Subgroup: phone-measured nights (non-missing overall_motion)
+Rows before complete-case filtering:889
+Rows used in phone overall interaction:889
+Predictor preprocessing (all continuous predictors):
+  1) log(x + 1)
+  2) z-score
+  Transformed columns:overall_motion_logz, high_freq_logz, low_freq_logz
+Cueing interaction model: predictor main effects + predictor:cued_night interactions
+Terms per predictor: predictor + predictor:cued_night
+Predictors:overall_motion_logz, high_freq_logz, low_freq_logz
+Model formula:lucid ~ overall_motion_logz + overall_motion_logz:cued_night + 
+Model formula:    high_freq_logz + high_freq_logz:cued_night + low_freq_logz + 
+Model formula:    low_freq_logz:cued_night + (1 | pid)
+Rows used:889
+Participants:395
+
+=====Model 3 Phone Overall Cueing Interaction Summary (glmmTMB binomial)=====
+ Family: binomial  ( logit )
+Formula:          
+lucid ~ overall_motion_logz + overall_motion_logz:cued_night +  
+    high_freq_logz + high_freq_logz:cued_night + low_freq_logz +  
+    low_freq_logz:cued_night + (1 | pid)
+Data: data
+
+      AIC       BIC    logLik -2*log(L)  df.resid 
+    499.1     537.5    -241.6     483.1       881 
+
+Random effects:
+
+Conditional model:
+ Groups Name        Variance Std.Dev.
+ pid    (Intercept) 73.83    8.592   
+Number of obs: 889, groups:  pid, 395
+
+Conditional model:
+                                Estimate Std. Error z value Pr(>|z|)    
+(Intercept)                      -7.8464     0.8056  -9.740   <2e-16 ***
+overall_motion_logz              -5.5775     6.4677  -0.862    0.388    
+high_freq_logz                   -0.9120     1.2517  -0.729    0.466    
+low_freq_logz                     6.1358     6.0094   1.021    0.307    
+overall_motion_logz:cued_night1 -10.8418    19.0026  -0.571    0.568    
+cued_night1:high_freq_logz        0.7542     2.5474   0.296    0.767    
+cued_night1:low_freq_logz        10.6453    17.8023   0.598    0.550    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+===== Odds Ratios =====
+                    (Intercept)             overall_motion_logz 
+                   3.911409e-04                    3.782111e-03 
+                 high_freq_logz                   low_freq_logz 
+                   4.017282e-01                    4.621022e+02 
+overall_motion_logz:cued_night1      cued_night1:high_freq_logz 
+                   1.956514e-05                    2.125897e+00 
+      cued_night1:low_freq_logz 
+                   4.199554e+04 
+
+===== DHARMa Diagnostics =====
+Saved results (including raw and FDR p-values) to:/Users/solenenoize/Desktop/sleep_analysis/model3/results/phone_overall_interaction_model3_phone_overall_motion_cueing_interaction_results_20260629_174404.csv
+Saved DHARMa plot to:/Users/solenenoize/Desktop/sleep_analysis/model3/results/phone_overall_interaction_model3_phone_overall_motion_cueing_interaction_DHARMa_20260629_174404.pdf

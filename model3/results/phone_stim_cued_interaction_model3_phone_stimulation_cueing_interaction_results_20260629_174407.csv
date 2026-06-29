@@ -1,0 +1,6 @@
+"model","term","estimate","std_error","z_value","odds_ratio","p_raw","p_fdr","significant_raw_0.05","significant_fdr_0.05"
+"model3_phone_stimulation_cueing_interaction","(Intercept)",-7.84246270785893,1.79461010864637,-4.3700092126274,0.000392700741623048,1.24241294795553e-05,6.21206473977767e-05,TRUE,TRUE
+"model3_phone_stimulation_cueing_interaction","stimulation_motion_logz",-0.278465719556859,3.11465220162468,-0.089405076885183,0.756944215688297,0.928759988860569,0.969265687068917,FALSE,FALSE
+"model3_phone_stimulation_cueing_interaction","cue_delta_var_logz",-1.08279878200284,2.8165182141577,-0.384445865309859,0.3386464006161,0.700648011853485,0.969265687068917,FALSE,FALSE
+"model3_phone_stimulation_cueing_interaction","stimulation_motion_logz:cued_night1",-0.15025658687081,3.89980265524826,-0.0385292795953656,0.860487158389422,0.969265687068917,0.969265687068917,FALSE,FALSE
+"model3_phone_stimulation_cueing_interaction","cued_night1:cue_delta_var_logz",1.16790044148551,3.73462354292136,0.312722401083547,3.21523497299017,0.754491574976529,0.969265687068917,FALSE,FALSE

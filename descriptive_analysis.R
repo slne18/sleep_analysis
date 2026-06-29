@@ -129,8 +129,24 @@ df <- data.frame(
     "wake up duration"
   ),
   sleep_quality = get_col(raw_df, c("^sleep_quality$", "^sleep quality$", "how would you rate your sleep quality"), "sleep quality"),
-  lucid_dreams_past_week = get_col(raw_df, c("^lucid_dreams_past_week$", "how many lucid dreams.*past week"), "lucid dreams past week"),
-  lucid_attempts_past_week = get_col(raw_df, c("^lucid_attempts_past_week$", "lucid dreaming attempts in past week"), "lucid attempts past week"),
+  lucid_dreams_freq_pw = if ("lucid_dreams_freq_pw" %in% names(raw_df)) {
+    suppressWarnings(as.numeric(raw_df$lucid_dreams_freq_pw))
+  } else {
+    suppressWarnings(as.numeric(get_col(
+      raw_df,
+      c("^lucid_dreams_past_week$", "how many lucid dreams.*past week"),
+      "lucid dreams past week"
+    ))) / 7
+  },
+  lucid_attempts_freq_pw = if ("lucid_attempts_freq_pw" %in% names(raw_df)) {
+    suppressWarnings(as.numeric(raw_df$lucid_attempts_freq_pw))
+  } else {
+    suppressWarnings(as.numeric(get_col(
+      raw_df,
+      c("^lucid_attempts_past_week$", "lucid dreaming attempts in past week"),
+      "lucid attempts past week"
+    ))) / 7
+  },
   age = get_col(raw_df, c("^age$", "^what is your age\\??"), "age"),
   time_asleep = get_col(raw_df, c("^time_asleep$", "^time asleep$"), "time asleep"),
   overall_motion = get_col(raw_df, c("^overall_motion$"), "overall_motion"),
@@ -146,7 +162,7 @@ df <- data.frame(
 
 numeric_cols <- c(
   "wakeThresh", "highestVol", "arousalN", "totalCues", "had_arousal", "cued_night",
-  "lucid_dreams_past_week", "lucid_attempts_past_week", "age", "time_asleep",
+  "lucid_dreams_freq_pw", "lucid_attempts_freq_pw", "age", "time_asleep",
   "overall_motion", "stimulation_motion", "fitbit_overall_motion", "fitbit_stim_motion",
   "cue_delta_var", "high_freq", "low_freq"
 )
@@ -162,7 +178,7 @@ df$arousal_rate <- ifelse(!is.na(df$totalCues) & df$totalCues > 0, df$arousalN /
 analysis_cols <- c(
   "wakeThresh", "highestVol", "arousalN", "totalCues", "arousal_rate",
   "sleep_quality_num", "wake_up_duration_min",
-  "lucid_dreams_past_week", "lucid_attempts_past_week", "age", "time_asleep",
+  "lucid_dreams_freq_pw", "lucid_attempts_freq_pw", "age", "time_asleep",
   "overall_motion", "stimulation_motion", "fitbit_overall_motion", "fitbit_stim_motion",
   "cue_delta_var", "high_freq", "low_freq"
 )
@@ -227,12 +243,142 @@ summarise_one <- function(x, nm) {
   )
 }
 
+fmt_mean_sd <- function(x, digits = 1) {
+  x <- x[is.finite(x)]
+  if (length(x) == 0) {
+    return(NA_character_)
+  }
+  sprintf(
+    paste0("%.", digits, "f (%.", digits, "f)"),
+    mean(x),
+    sd(x)
+  )
+}
+
+fmt_median_iqr <- function(x, digits = 1) {
+  x <- x[is.finite(x)]
+  if (length(x) == 0) {
+    return(NA_character_)
+  }
+  q <- unname(quantile(x, c(0.25, 0.5, 0.75), na.rm = TRUE))
+  sprintf(
+    paste0("%.", digits, "f [%.", digits, "f, %.", digits, "f]"),
+    q[2],
+    q[1],
+    q[3]
+  )
+}
+
+fmt_n_pct <- function(n, denom, digits = 1) {
+  if (denom <= 0) {
+    return(sprintf("0 (0.%d%%)", digits))
+  }
+  sprintf(paste0("%d (%.", digits, "f%%)"), n, 100 * n / denom)
+}
+
+add_sample_row <- function(rows, characteristic, value, n = NA_integer_, statistic = "") {
+  rbind(
+    rows,
+    data.frame(
+      characteristic = characteristic,
+      statistic = statistic,
+      value = value,
+      n = n,
+      stringsAsFactors = FALSE
+    )
+  )
+}
+
+add_continuous_sample_rows <- function(rows, label, x, digits = 1) {
+  x <- suppressWarnings(as.numeric(x))
+  x <- x[is.finite(x)]
+  n <- length(x)
+  rows <- add_sample_row(rows, label, fmt_mean_sd(x, digits = digits), n, "mean (SD)")
+  add_sample_row(rows, label, fmt_median_iqr(x, digits = digits), n, "median [IQR]")
+}
+
+build_sample_characteristics_table <- function(df) {
+  pid_ok <- !is.na(df$pid) & nzchar(as.character(df$pid))
+  participant_df <- df[pid_ok, , drop = FALSE]
+  participant_df <- participant_df[
+    order(participant_df$pid),
+    ,
+    drop = FALSE
+  ]
+  participant_df <- participant_df[
+    !duplicated(participant_df$pid),
+    ,
+    drop = FALSE
+  ]
+
+  nights_per_participant <- as.numeric(table(df$pid[pid_ok]))
+  participant_n <- length(nights_per_participant)
+  total_nights <- sum(nights_per_participant)
+
+  gender_vals <- as.character(participant_df$gender)
+  gender_vals[is.na(gender_vals) | !nzchar(gender_vals)] <- "Missing/Unknown"
+  gender_tab <- sort(table(gender_vals), decreasing = TRUE)
+  gender_denom <- sum(gender_tab)
+
+  sample_rows <- data.frame(
+    characteristic = character(),
+    statistic = character(),
+    value = character(),
+    n = integer(),
+    stringsAsFactors = FALSE
+  )
+
+  sample_rows <- add_sample_row(sample_rows, "Participants", as.integer(participant_n), participant_n, "n")
+  sample_rows <- add_sample_row(sample_rows, "Nights recorded", as.integer(total_nights), total_nights, "n")
+  sample_rows <- add_continuous_sample_rows(sample_rows, "Nights per participant", nights_per_participant)
+  sample_rows <- add_continuous_sample_rows(sample_rows, "Age (years)", participant_df$age)
+  for (level_name in names(gender_tab)) {
+    sample_rows <- add_sample_row(
+      sample_rows,
+      "Sex",
+      fmt_n_pct(as.integer(gender_tab[[level_name]]), gender_denom),
+      gender_denom,
+      level_name
+    )
+  }
+  sample_rows <- add_continuous_sample_rows(
+    sample_rows,
+    "Lucid dreams per day (past week)",
+    participant_df$lucid_dreams_freq_pw
+  )
+  sample_rows <- add_continuous_sample_rows(
+    sample_rows,
+    "Lucid dream attempts per day (past week)",
+    participant_df$lucid_attempts_freq_pw
+  )
+
+  lucid_rate <- tapply(
+    df$lucid[pid_ok & df$lucid %in% c(0, 1)],
+    df$pid[pid_ok & df$lucid %in% c(0, 1)],
+    mean
+  )
+  sample_rows <- add_continuous_sample_rows(
+    sample_rows,
+    "Lucid dream rate (proportion of recorded nights)",
+    as.numeric(lucid_rate)
+  )
+
+  sample_rows
+}
+
 stats_list <- lapply(names(analysis_df), function(nm) summarise_one(analysis_df[[nm]], nm))
 stats_df <- do.call(rbind, stats_list)
 median_sd <- median(stats_df$sd[is.finite(stats_df$sd) & stats_df$sd > 0], na.rm = TRUE)
 stats_df$sd_vs_median_sd <- if (is.finite(median_sd) && median_sd > 0) stats_df$sd / median_sd else NA_real_
 stats_df$large_scale_flag <- ifelse(!is.na(stats_df$sd_vs_median_sd) & stats_df$sd_vs_median_sd >= 5, "YES", "")
 stats_df <- stats_df[order(-stats_df$sd, stats_df$variable), , drop = FALSE]
+
+sample_df <- build_sample_characteristics_table(df)
+sample_file <- file.path(results_dir, paste0(script_name, "_sample_characteristics_", timestamp, ".csv"))
+write.csv(sample_df, sample_file, row.names = FALSE)
+
+cat("\n===== Sample Characteristics (participant-level) =====\n")
+print(sample_df, row.names = FALSE)
 
 stats_file <- file.path(results_dir, paste0(script_name, "_numeric_stats_", timestamp, ".csv"))
 write.csv(stats_df, stats_file, row.names = FALSE)
@@ -308,4 +454,5 @@ if (nrow(model_df) == 0) {
   print(table(model_df$had_arousal, model_df$cued_night))
 }
 
-cat("\nSaved numeric stats to:", stats_file, "\n")
+cat("\nSaved sample characteristics to:", sample_file, "\n")
+cat("Saved numeric stats to:", stats_file, "\n")

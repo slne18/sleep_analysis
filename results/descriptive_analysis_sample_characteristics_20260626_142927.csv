@@ -1,0 +1,17 @@
+"characteristic","statistic","value","n"
+"Participants","n","592",592
+"Nights recorded","n","2072",2072
+"Nights per participant","mean (SD)","3.5 (5.3)",592
+"Nights per participant","median [IQR]","2.0 [1.0, 4.0]",592
+"Age (years)","mean (SD)","36.0 (14.0)",591
+"Age (years)","median [IQR]","34.0 [24.5, 44.0]",591
+"Sex","Male","349 (59.0%)",592
+"Sex","Female","206 (34.8%)",592
+"Sex","Other/Prefer Not to Say","36 (6.1%)",592
+"Sex","Missing/Unknown","1 (0.2%)",592
+"Lucid dreams in past week","mean (SD)","0.5 (1.2)",591
+"Lucid dreams in past week","median [IQR]","0.0 [0.0, 1.0]",591
+"Lucid dream attempts in past week","mean (SD)","1.1 (1.8)",591
+"Lucid dream attempts in past week","median [IQR]","0.0 [0.0, 2.0]",591
+"Lucid dream rate (proportion of recorded nights)","mean (SD)","0.1 (0.3)",592
+"Lucid dream rate (proportion of recorded nights)","median [IQR]","0.0 [0.0, 0.0]",592

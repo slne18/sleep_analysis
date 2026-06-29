@@ -1,0 +1,51 @@
+Saving output to:/Users/solenenoize/Desktop/sleep_analysis/model2/results/model2_20260629_172216.log
+Using input file:/Users/solenenoize/Desktop/sleep_analysis/model2/../data/merge_data_cleaned.xlsx
+Rows before complete-case filtering:2072
+Rows used in model2:2054
+Predictor preprocessing (all continuous predictors):
+  1) log(x + 1)
+  2) z-score
+  Transformed columns:wakeThresh_logz, highestVol_logz
+Categorical predictors:cue_notice, cued_night, had_arousal
+Model formula:lucid ~ wakeThresh_logz + highestVol_logz + cue_notice + cued_night + 
+Model formula:    had_arousal + (1 | pid)
+Rows used:2054
+Participants:591
+
+=====Model 2 Summary (glmmTMB binomial)=====
+ Family: binomial  ( logit )
+Formula:          
+lucid ~ wakeThresh_logz + highestVol_logz + cue_notice + cued_night +  
+    had_arousal + (1 | pid)
+Data: data
+
+      AIC       BIC    logLik -2*log(L)  df.resid 
+   1133.6    1173.0    -559.8    1119.6      2047 
+
+Random effects:
+
+Conditional model:
+ Groups Name        Variance Std.Dev.
+ pid    (Intercept) 1.718    1.311   
+Number of obs: 2054, groups:  pid, 591
+
+Conditional model:
+                Estimate Std. Error z value Pr(>|z|)    
+(Intercept)     -3.00303    0.19924 -15.073   <2e-16 ***
+wakeThresh_logz -0.33704    0.47092  -0.716   0.4742    
+highestVol_logz  0.03108    0.12340   0.252   0.8012    
+cue_notice1      2.68614    0.27909   9.625   <2e-16 ***
+cued_night1     -0.64895    0.27845  -2.331   0.0198 *  
+had_arousal1     0.20918    0.37163   0.563   0.5735    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+===== Odds Ratios =====
+    (Intercept) wakeThresh_logz highestVol_logz     cue_notice1     cued_night1 
+     0.04963664      0.71387926      1.03156604     14.67489406      0.52259246 
+   had_arousal1 
+     1.23266734 
+
+===== DHARMa Diagnostics =====
+Saved results (including raw and FDR p-values) to:/Users/solenenoize/Desktop/sleep_analysis/model2/results/model2_model2_device_stimulation_results_20260629_172216.csv
+Saved DHARMa plot to:/Users/solenenoize/Desktop/sleep_analysis/model2/results/model2_model2_device_stimulation_DHARMa_20260629_172216.pdf

@@ -1,0 +1,52 @@
+Saving output to:/Users/solenenoize/Desktop/sleep_analysis/model3/results/fitbit_stim_cued_interaction_20260629_174403.log
+Using input file:/Users/solenenoize/Desktop/sleep_analysis/model3/../data/merge_data_cleaned.xlsx
+Subgroup: Fitbit-measured nights (non-missing fitbit_stim_motion)
+Note: interaction version keeps cued and non-cued nights (unlike fitbit_stim_cued.R, which is cued nights only).
+Rows before complete-case filtering:283
+Rows used in fitbit stim interaction:97
+Predictor preprocessing (all continuous predictors):
+  1) log(x + 1)
+  2) z-score
+  Transformed columns:fitbit_stim_motion_logz
+Cueing interaction model: predictor main effects + predictor:cued_night interactions
+Terms per predictor: predictor + predictor:cued_night
+Predictors:fitbit_stim_motion_logz
+Model formula:lucid ~ fitbit_stim_motion_logz + fitbit_stim_motion_logz:cued_night + 
+Model formula:    (1 | pid)
+Rows used:97
+Participants:37
+
+=====Model 3 Fitbit Stim Cueing Interaction Summary (glmmTMB binomial)=====
+ Family: binomial  ( logit )
+Formula:          
+lucid ~ fitbit_stim_motion_logz + fitbit_stim_motion_logz:cued_night +  
+    (1 | pid)
+Data: data
+
+      AIC       BIC    logLik -2*log(L)  df.resid 
+     70.1      80.4     -31.1      62.1        93 
+
+Random effects:
+
+Conditional model:
+ Groups Name        Variance Std.Dev.
+ pid    (Intercept) 0.05896  0.2428  
+Number of obs: 97, groups:  pid, 37
+
+Conditional model:
+                                    Estimate Std. Error z value Pr(>|z|)  
+(Intercept)                          -2.3005     0.9105  -2.526   0.0115 *
+fitbit_stim_motion_logz              -0.8907     0.7575  -1.176   0.2396  
+fitbit_stim_motion_logz:cued_night1   0.8946     0.8072   1.108   0.2678  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+===== Odds Ratios =====
+                        (Intercept)             fitbit_stim_motion_logz 
+                          0.1002124                           0.4103522 
+fitbit_stim_motion_logz:cued_night1 
+                          2.4464315 
+
+===== DHARMa Diagnostics =====
+Saved results (including raw and FDR p-values) to:/Users/solenenoize/Desktop/sleep_analysis/model3/results/fitbit_stim_cued_interaction_model3_fitbit_stim_motion_cueing_interaction_results_20260629_174403.csv
+Saved DHARMa plot to:/Users/solenenoize/Desktop/sleep_analysis/model3/results/fitbit_stim_cued_interaction_model3_fitbit_stim_motion_cueing_interaction_DHARMa_20260629_174403.pdf

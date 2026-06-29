@@ -1,0 +1,51 @@
+Saving output to:/Users/solenenoize/Desktop/sleep_analysis/model3/results/fitbit_overall_interaction_20260629_174400.log
+Using input file:/Users/solenenoize/Desktop/sleep_analysis/model3/../data/merge_data_cleaned.xlsx
+Subgroup: Fitbit-measured nights (non-missing fitbit_overall_motion)
+Rows before complete-case filtering:283
+Rows used in fitbit overall interaction:283
+Predictor preprocessing (all continuous predictors):
+  1) log(x + 1)
+  2) z-score
+  Transformed columns:fitbit_overall_motion_logz
+Cueing interaction model: predictor main effects + predictor:cued_night interactions
+Terms per predictor: predictor + predictor:cued_night
+Predictors:fitbit_overall_motion_logz
+Model formula:lucid ~ fitbit_overall_motion_logz + fitbit_overall_motion_logz:cued_night + 
+Model formula:    (1 | pid)
+Rows used:283
+Participants:102
+
+=====Model 3 Fitbit Overall Cueing Interaction Summary (glmmTMB binomial)=====
+ Family: binomial  ( logit )
+Formula:          
+lucid ~ fitbit_overall_motion_logz + fitbit_overall_motion_logz:cued_night +  
+    (1 | pid)
+Data: data
+
+      AIC       BIC    logLik -2*log(L)  df.resid 
+    200.4     215.0     -96.2     192.4       279 
+
+Random effects:
+
+Conditional model:
+ Groups Name        Variance Std.Dev.
+ pid    (Intercept) 1.402    1.184   
+Number of obs: 283, groups:  pid, 102
+
+Conditional model:
+                                       Estimate Std. Error z value Pr(>|z|)    
+(Intercept)                             -2.4843     0.3822  -6.500 8.05e-11 ***
+fitbit_overall_motion_logz               0.4970     0.3446   1.442    0.149    
+fitbit_overall_motion_logz:cued_night1  -0.8044     0.4360  -1.845    0.065 .  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+===== Odds Ratios =====
+                           (Intercept)             fitbit_overall_motion_logz 
+                            0.08338455                             1.64382438 
+fitbit_overall_motion_logz:cued_night1 
+                            0.44734642 
+
+===== DHARMa Diagnostics =====
+Saved results (including raw and FDR p-values) to:/Users/solenenoize/Desktop/sleep_analysis/model3/results/fitbit_overall_interaction_model3_fitbit_overall_motion_cueing_interaction_results_20260629_174400.csv
+Saved DHARMa plot to:/Users/solenenoize/Desktop/sleep_analysis/model3/results/fitbit_overall_interaction_model3_fitbit_overall_motion_cueing_interaction_DHARMa_20260629_174400.pdf

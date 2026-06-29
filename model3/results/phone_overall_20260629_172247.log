@@ -1,0 +1,45 @@
+Saving output to:/Users/solenenoize/Desktop/sleep_analysis/model3/results/phone_overall_20260629_172247.log
+Using input file:/Users/solenenoize/Desktop/sleep_analysis/model3/../data/merge_data_cleaned.xlsx
+Subgroup: phone-measured nights (non-missing overall_motion)
+Rows before complete-case filtering:889
+Predictor preprocessing (all continuous predictors):
+  1) log(x + 1)
+  2) z-score
+  Transformed columns:overall_motion_logz, high_freq_logz, low_freq_logz
+Model formula:lucid ~ overall_motion_logz + high_freq_logz + low_freq_logz + 
+Model formula:    (1 | pid)
+Rows used:889
+Participants:395
+
+=====Model 3 Phone Overall Summary (glmmTMB binomial)=====
+ Family: binomial  ( logit )
+Formula:          
+lucid ~ overall_motion_logz + high_freq_logz + low_freq_logz +      (1 | pid)
+Data: data
+
+      AIC       BIC    logLik -2*log(L)  df.resid 
+    494.8     518.7    -242.4     484.8       884 
+
+Random effects:
+
+Conditional model:
+ Groups Name        Variance Std.Dev.
+ pid    (Intercept) 71.44    8.452   
+Number of obs: 889, groups:  pid, 395
+
+Conditional model:
+                    Estimate Std. Error z value Pr(>|z|)    
+(Intercept)          -7.7339     0.7881  -9.813   <2e-16 ***
+overall_motion_logz  -6.9188     5.9834  -1.156    0.248    
+high_freq_logz       -0.6382     1.1401  -0.560    0.576    
+low_freq_logz         7.4546     5.5824   1.335    0.182    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+===== Odds Ratios =====
+        (Intercept) overall_motion_logz      high_freq_logz       low_freq_logz 
+       4.377536e-04        9.890187e-04        5.282230e-01        1.727727e+03 
+
+===== DHARMa Diagnostics =====
+Saved results (including raw and FDR p-values) to:/Users/solenenoize/Desktop/sleep_analysis/model3/results/phone_overall_model3_phone_overall_motion_results_20260629_172247.csv
+Saved DHARMa plot to:/Users/solenenoize/Desktop/sleep_analysis/model3/results/phone_overall_model3_phone_overall_motion_DHARMa_20260629_172247.pdf

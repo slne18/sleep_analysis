@@ -43,6 +43,47 @@ def write_table(df: pd.DataFrame, path: Path) -> None:
     raise ValueError(f"Unsupported output file type: {suffix}. Use .xlsx/.xls/.csv")
 
 
+PHONE_MOTION_COLS = [
+    "overall_motion",
+    "stimulation_motion",
+    "cue_delta_var",
+    "high_freq",
+    "low_freq",
+]
+
+FITBIT_MOTION_COLS = [
+    "fitbit_overall_motion",
+    "fitbit_stim_motion",
+]
+
+FITBIT_MOTION_INDICATOR = "fitbit_overall_motion"
+
+
+def separate_phone_and_fitbit_motion(df: pd.DataFrame) -> tuple[pd.DataFrame, dict[str, int]]:
+    """Keep phone motion or Fitbit motion per row, never both."""
+    out = df.copy()
+    cleared: dict[str, int] = {}
+
+    if FITBIT_MOTION_INDICATOR not in out.columns:
+        return out, cleared
+
+    phone_cols = [col for col in PHONE_MOTION_COLS if col in out.columns]
+    fitbit_cols = [col for col in FITBIT_MOTION_COLS if col in out.columns]
+    fitbit_mask = out[FITBIT_MOTION_INDICATOR].notna()
+
+    for col in phone_cols:
+        clear_mask = fitbit_mask & out[col].notna()
+        cleared[f"phone:{col}"] = int(clear_mask.sum())
+        out.loc[clear_mask, col] = pd.NA
+
+    for col in fitbit_cols:
+        clear_mask = (~fitbit_mask) & out[col].notna()
+        cleared[f"fitbit:{col}"] = int(clear_mask.sum())
+        out.loc[clear_mask, col] = pd.NA
+
+    return out, cleared
+
+
 def get_pid_night_columns(df: pd.DataFrame, pid_col: str | None, night_col: str | None) -> tuple[str | None, str | None]:
     picked_pid = pid_col or pick_column(df.columns, ["pid", "participant_id", "user_id"])
     picked_night = night_col or pick_column(
@@ -310,6 +351,8 @@ def main() -> int:
         if inferred_night_col is not None:
             merged_df = merged_df.drop(columns=[inferred_night_col], errors="ignore")
 
+        merged_df, motion_cleared = separate_phone_and_fitbit_motion(merged_df)
+
         out_path = Path(args.output) if args.output else target_path
         write_table(merged_df, out_path)
 
@@ -328,6 +371,11 @@ def main() -> int:
         low_freq_rows = int(merged_df["low_freq"].notna().sum())
         print(f"Rows with matched high_freq: {high_freq_rows}/{len(merged_df)}")
         print(f"Rows with matched low_freq: {low_freq_rows}/{len(merged_df)}")
+        if motion_cleared:
+            print("Separated phone vs Fitbit motion (cleared overlapping values):")
+            for label, count in sorted(motion_cleared.items()):
+                if count > 0:
+                    print(f"  {label}: {count}")
 
     return 0
 

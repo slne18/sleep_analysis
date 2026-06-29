@@ -1,0 +1,3 @@
+"model","term","estimate","std_error","z_value","odds_ratio","p_raw","p_fdr","significant_raw_0.05","significant_fdr_0.05"
+"model3_fitbit_overall_motion","(Intercept)",-2.43560015369439,0.368004654755198,-6.61839496382073,0.0875451907090646,3.63119775224033e-11,7.26239550448067e-11,TRUE,TRUE
+"model3_fitbit_overall_motion","fitbit_overall_motion_logz",0.0955618734150739,0.217258363698678,0.4398536000557,1.10027689781707,0.660043143789222,0.660043143789222,FALSE,FALSE

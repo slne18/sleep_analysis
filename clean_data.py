@@ -166,6 +166,62 @@ def binarize_positive(series: pd.Series) -> pd.Series:
     return out
 
 
+PHONE_MOTION_COLS = [
+    "overall_motion",
+    "stimulation_motion",
+    "cue_delta_var",
+    "high_freq",
+    "low_freq",
+]
+
+FITBIT_MOTION_COLS = [
+    "fitbit_overall_motion",
+    "fitbit_stim_motion",
+]
+
+FITBIT_MOTION_INDICATOR = "fitbit_overall_motion"
+
+
+def weekly_lucid_counts_to_daily_freq(df: pd.DataFrame) -> pd.DataFrame:
+    """Convert past-week lucid counts to daily rates (count / 7)."""
+    out = df.copy()
+    conversions = [
+        ("lucid_dreams_past_week", "lucid_dreams_freq_pw"),
+        ("lucid_attempts_past_week", "lucid_attempts_freq_pw"),
+    ]
+    for source_col, target_col in conversions:
+        if source_col not in out.columns:
+            continue
+        out[target_col] = pd.to_numeric(out[source_col], errors="coerce") / 7.0
+        out = out.drop(columns=[source_col])
+    return out
+
+
+def separate_phone_and_fitbit_motion(df: pd.DataFrame) -> tuple[pd.DataFrame, dict[str, int]]:
+    """Keep phone motion or Fitbit motion per row, never both."""
+    out = df.copy()
+    cleared: dict[str, int] = {}
+
+    if FITBIT_MOTION_INDICATOR not in out.columns:
+        return out, cleared
+
+    phone_cols = [col for col in PHONE_MOTION_COLS if col in out.columns]
+    fitbit_cols = [col for col in FITBIT_MOTION_COLS if col in out.columns]
+    fitbit_mask = out[FITBIT_MOTION_INDICATOR].notna()
+
+    for col in phone_cols:
+        clear_mask = fitbit_mask & out[col].notna()
+        cleared[f"phone:{col}"] = int(clear_mask.sum())
+        out.loc[clear_mask, col] = pd.NA
+
+    for col in fitbit_cols:
+        clear_mask = (~fitbit_mask) & out[col].notna()
+        cleared[f"fitbit:{col}"] = int(clear_mask.sum())
+        out.loc[clear_mask, col] = pd.NA
+
+    return out, cleared
+
+
 def main() -> None:
     if not INPUT_FILE.exists():
         raise FileNotFoundError(f"Input file not found: {INPUT_FILE}")
@@ -218,6 +274,7 @@ def main() -> None:
     rename_map[sleep_quality_col] = "sleep_quality"
 
     df = df.rename(columns=rename_map)
+    df = weekly_lucid_counts_to_daily_freq(df)
     if "gender" in df.columns:
         df["gender"] = df["gender"].apply(normalize_gender)
     if "arousalN" in df.columns and "totalCues" in df.columns:
@@ -225,11 +282,23 @@ def main() -> None:
         df["cued_night"] = binarize_positive(df["totalCues"])
         df["had_arousal"] = binarize_positive(df["arousalN"])
 
+    df, motion_cleared = separate_phone_and_fitbit_motion(df)
+
     OUTPUT_FILE.parent.mkdir(parents=True, exist_ok=True)
     df.to_excel(OUTPUT_FILE, index=False)
 
     print(f"Saved: {OUTPUT_FILE}")
     print(f"Updated in place columns: {time_asleep_col}, {wake_duration_col}, {sleep_quality_col}")
+    if motion_cleared:
+        print("Separated phone vs Fitbit motion (cleared overlapping values):")
+        for label, count in sorted(motion_cleared.items()):
+            if count > 0:
+                print(f"  {label}: {count}")
+    else:
+        print("No phone/Fitbit motion columns found to separate.")
+    print("Lucid past-week counts converted to daily rates:")
+    print("  lucid_dreams_past_week -> lucid_dreams_freq_pw (count / 7)")
+    print("  lucid_attempts_past_week -> lucid_attempts_freq_pw (count / 7)")
     print("Renamed columns:")
     for src, dst in sorted(rename_map.items(), key=lambda x: x[1]):
         print(f"  {src} -> {dst}")

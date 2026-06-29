@@ -1,0 +1,57 @@
+Saving output to:/Users/solenenoize/Desktop/sleep_analysis/model3/results/phone_stim_cued_interaction_20260629_174407.log
+Using input file:/Users/solenenoize/Desktop/sleep_analysis/model3/../data/merge_data_cleaned.xlsx
+Subgroup: phone-measured nights (non-missing overall_motion)
+Note: interaction version keeps cued and non-cued nights (unlike phone_stim_cued.R, which is cued nights only).
+Rows before complete-case filtering:889
+Rows used in phone stim interaction:240
+Predictor preprocessing (all continuous predictors):
+  1) log(x + 1)
+  2) z-score
+  Transformed columns:stimulation_motion_logz, cue_delta_var_logz
+Cueing interaction model: predictor main effects + predictor:cued_night interactions
+Terms per predictor: predictor + predictor:cued_night
+Predictors:stimulation_motion_logz, cue_delta_var_logz
+Model formula:lucid ~ stimulation_motion_logz + stimulation_motion_logz:cued_night + 
+Model formula:    cue_delta_var_logz + cue_delta_var_logz:cued_night + (1 | 
+Model formula:    pid)
+Rows used:240
+Participants:101
+
+=====Model 3 Phone Stim Cueing Interaction Summary (glmmTMB binomial)=====
+ Family: binomial  ( logit )
+Formula:          
+lucid ~ stimulation_motion_logz + stimulation_motion_logz:cued_night +  
+    cue_delta_var_logz + cue_delta_var_logz:cued_night + (1 |      pid)
+Data: data
+
+      AIC       BIC    logLik -2*log(L)  df.resid 
+    110.9     131.8     -49.4      98.9       234 
+
+Random effects:
+
+Conditional model:
+ Groups Name        Variance Std.Dev.
+ pid    (Intercept) 54.65    7.393   
+Number of obs: 240, groups:  pid, 101
+
+Conditional model:
+                                    Estimate Std. Error z value Pr(>|z|)    
+(Intercept)                          -7.8425     1.7946  -4.370 1.24e-05 ***
+stimulation_motion_logz              -0.2785     3.1147  -0.089    0.929    
+cue_delta_var_logz                   -1.0828     2.8165  -0.384    0.701    
+stimulation_motion_logz:cued_night1  -0.1503     3.8998  -0.039    0.969    
+cued_night1:cue_delta_var_logz        1.1679     3.7346   0.313    0.754    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+===== Odds Ratios =====
+                        (Intercept)             stimulation_motion_logz 
+                       0.0003927007                        0.7569442157 
+                 cue_delta_var_logz stimulation_motion_logz:cued_night1 
+                       0.3386464006                        0.8604871584 
+     cued_night1:cue_delta_var_logz 
+                       3.2152349730 
+
+===== DHARMa Diagnostics =====
+Saved results (including raw and FDR p-values) to:/Users/solenenoize/Desktop/sleep_analysis/model3/results/phone_stim_cued_interaction_model3_phone_stimulation_cueing_interaction_results_20260629_174407.csv
+Saved DHARMa plot to:/Users/solenenoize/Desktop/sleep_analysis/model3/results/phone_stim_cued_interaction_model3_phone_stimulation_cueing_interaction_DHARMa_20260629_174407.pdf
